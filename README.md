@@ -5,7 +5,7 @@
 #### Network Access Control List (NACLs)
 ##### Security Groups
 
-![](AWS_deployment_networking_security.png)
+![](/img/AWS_deployment_networking_security.png)
 
 
 - What is a VPC?

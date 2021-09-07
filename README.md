@@ -105,4 +105,7 @@ In AWS:
 - Click 'Create network ACL'
 - Select your NACL
 - In the Inbound Rules tab, click 'Edit inbound rules'
-- 
+- Change inbound rules to the following:
+
+![](img/NACLpublicinboundrules.jpg)
+

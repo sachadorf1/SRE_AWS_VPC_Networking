@@ -42,3 +42,67 @@
 - Set inbound and outbound rules for this
 
 - Step 6: Create a security group for our app
+
+
+## Step 1: Create a VPC with IPV valid CDIR block
+
+In AWS:
+
+- Search for VPC
+- Go into 'Your VPC'
+- Click 'Create VPC'
+- Create a name tag e.g SRE_<'your name'>_vpc
+- Create a IPV4 CIDRblock e.g. 10.106.0.0/16
+- Click create VPC
+
+## Step 2: Create internet gateway
+
+- Click on 'Internet Gateways' on the side tab
+- Create a name tag e.g. SRE_<'name'>_ig
+- Click 'Create Internet Gateway'
+- Click on Action and click 'Attach VPC'
+- Select the VPC we have created (SRE_<'your name'>_vpc)
+- Click 'Attach Internet Gateway'
+
+## Step 3: Create subnets
+### Create public subnet
+- Click on 'Subnets' on the side tab
+- Click 'Create Subnet'
+- Select your VPC (SRE_<'your name'>_vpc)
+- Create a name tag e.g. SRE_<'name'>_public_sb
+- Availability Zone is 1a
+- Set the IPv4 CIDR block to be the same as for the VPC <B>except</B> change the 3rd optec to 1 instead of 0, e.g. 10.106.1.0/16
+- Click 'Create Subnet'
+
+### Create private subnet
+- Same as previous except:
+- Name tag e.g. SRE_<'name'>_private_sb
+- Set the IPv4 CIDR block to be the same as for the VPC <B>except</B> change the 3rd optec to 2 instead of 0, e.g. 10.106.2.0/16
+- Click 'Create Subnet'
+
+## Step 4: Create route table
+
+- Click on 'Route Tables' on the side tab
+- Click 'Create Route Table'
+- Create a name tag e.g. SRE_<'name'>_rt
+- Select your VPC (SRE_<'your name'>_vpc)
+- Click Create Route Table
+- Select the Route Table you have just created
+- In the Routes tab, click 'Edit Routes'
+- Add your Internet Gateway (SRE_<'name'>_ig)
+- Save changes
+- In the Subnet associations tab, click 'Edit subnet associations'
+- Select the subnets you have created
+- Click 'Save Associations'
+
+## Step 5: Create NACLs
+### Public NACL
+- Click on 'Network ACLs' on the side tab under 'Security'
+- Click 'Create Network ACL'
+- Create a public NACL
+- Create name tag e.g. e.g. SRE_<'name'>_public_nacl
+- Select your VPC
+- Click 'Create network ACL'
+- Select your NACL
+- In the Inbound Rules tab, click 'Edit inbound rules'
+- 

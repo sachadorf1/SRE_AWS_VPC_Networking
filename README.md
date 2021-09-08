@@ -109,3 +109,48 @@ In AWS:
 
 ![](img/NACLpublicinboundrules.jpg)
 
+- In the Outbound Rules tab, click 'Edit outbound rules'
+- Change outbound rules to the following:
+
+![](img/NACLpublicoutboundrules.png)
+
+### Private NACL
+- Similar to Public NACL except:
+- Create name tag e.g. e.g. SRE_<'name'>_private_nacl
+- Change inbound rules to the following:
+
+![](img/NACLprivateinboundrules.jpg)
+
+- Change outbound rules to the following:
+
+![](img/NACLprivateoutboundrules.png)
+
+## Step 6: Create EC2 Instances
+### Creating an EC2 Instance for the app:
+- Launch app from AMI
+- Select the VPC you have created
+- Select the public subnet SRE_<'name'>_public_sb
+- Auto-assign public IP: Enable
+
+### Creating an EC2 Instance for the db:
+- Launch app from AMI
+- Select the VPC you have created
+- Select the private subnet SRE_<'name'>_private_sb
+- Auto-assign public IP: Disable
+
+## Step 7: Create a security group for our app and db
+### Create a security group for the app
+- Inbound Rules:
+    - HTTP: Anywhere
+    - SSH: My IP
+
+![](img/sg_rules_app.jpg)
+
+### Create a security group for the db
+- Inbound Rules:
+    - Custom: Port 27017 : DB IP
+
+![](img/sg_rules_db.jpg)
+
+## Step 8: Connect to the app instance
+For full instructions for connect to an instance see my documentation [here]https://github.com/sachadorf1/cloud_computing_AWS/README.md

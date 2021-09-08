@@ -153,4 +153,4 @@ In AWS:
 ![](img/sg_rules_db.jpg)
 
 ## Step 8: Connect to the app instance
-For full instructions for connect to an instance see my documentation [here]https://github.com/sachadorf1/cloud_computing_AWS/README.md
+For full instructions for connect to an instance see my documentation [here](https://github.com/sachadorf1/cloud_computing_AWS/README.md)
